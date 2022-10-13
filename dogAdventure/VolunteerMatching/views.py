@@ -20,6 +20,7 @@ class DogDetailAPI(APIView):
         id = request.GET.get("id", None)
         dog = AbandonedDog.objects.get(id=id)
         serializer = DogSerializer(dog)
+        #serializer.data[]
         return Response(serializer.data)
 
 
