@@ -14,11 +14,10 @@ class AbandonedDog(models.Model) :
     datetime = models.DateTimeField()
     weight = models.FloatField()
     info = models.TextField()
-    airport = models.CharField(max_length=64, default='')
-    region = models.CharField(max_length=64, default='')
-    transport = models.CharField(max_length=64, default='')
-    destination = models.CharField(max_length=64,  default='')
-    title = models.TextField(blank=True, null=True, default='')
+    region = models.CharField(max_length=64)
+    transport = models.CharField(max_length=64)
+    destination = models.CharField(max_length=64)
+    title = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return (self.name + '_' + str(self.id))
