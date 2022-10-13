@@ -11,11 +11,10 @@ class AbandonedDog(models.Model) :
 	)
     gender = models.CharField(max_length=8, choices=GENDER_CHOICES)
 
-    airport = models.CharField(max_length=64)
-    time_agreement = models.BooleanField(default=False)
     datetime = models.DateTimeField()
     weight = models.IntegerField()
     info = models.TextField()
+    region = models.CharField(max_length=64)
 
     def __str__(self):
         return (self.name + '_' + str(self.id))
