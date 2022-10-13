@@ -4,7 +4,6 @@ from .models import AbandonedDog, Image
 
 class DogImagesSerializer(serializers.ModelSerializer):
     image = serializers.ImageField(max_length=None, use_url=True, allow_null=True, required=False)
-    image.data['image'] = 'https://dogadventure-qeocv.run.goorm.io/' + image.data['image']
 
     class Meta:
         model = Image
