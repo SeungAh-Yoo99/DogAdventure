@@ -15,6 +15,7 @@ class AbandonedDog(models.Model) :
     weight = models.IntegerField()
     info = models.TextField()
     region = models.CharField(max_length=64)
+    destination = models.CharField(max_length=64)
 
     def __str__(self):
         return (self.name + '_' + str(self.id))
