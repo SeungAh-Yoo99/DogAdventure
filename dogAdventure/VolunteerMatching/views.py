@@ -17,5 +17,5 @@ class DogDetailAPI(APIView):
     def get(self, request):
         id = request.GET.get("id", None)
         dogs = AbandonedDog.objects.filter(id=id)
-        serializer = DogSerializer(dogs, many=True)
+        serializer = DogSerializer(dogs)
         return Response(serializer.data)
