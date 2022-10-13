@@ -14,7 +14,7 @@ class TestAPI(APIView):
 
 
 class DogDetailAPI(APIView):
-    def get(request):
+    def get(self, request):
         id = request.GET.get("id", None)
         dogs = AbandonedDog.objects.filter(id=id)
         serializer = DogSerializer(dogs, many=True)
