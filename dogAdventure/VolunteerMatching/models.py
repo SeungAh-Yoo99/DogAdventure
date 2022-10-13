@@ -12,7 +12,7 @@ class AbandonedDog(models.Model) :
     gender = models.CharField(max_length=8, choices=GENDER_CHOICES)
 
     datetime = models.DateTimeField()
-    weight = models.IntegerField()
+    weight = models.DecimalField()
     info = models.TextField()
     region = models.CharField(max_length=64)
     transport = models.CharField(max_length=64)
