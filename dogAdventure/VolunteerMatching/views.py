@@ -6,6 +6,7 @@ import datetime
 from django.db.models import Q
 import json
 from django.http import HttpResponse
+from time import sleep
 
 from .models import AbandonedDog
 from .serializers import DogSerializer, DogListSerializer
@@ -44,14 +45,18 @@ class ReserveAPI(APIView):
     def post(self, request):
         body = json.loads(request.body.decode('utf-8'))
         id = body['id']
-        data = {'id': id}
-        return Response(data)
+        sleep(10)
+        id = request.GET.get("id", None)
+        dog = AbandonedDog.objects.get(id=id)
+        dog.isSuccess = True
+        dog.save()
+        return HttpResponse(status=200)
 
 
 class isSuccessAPI(APIView):
     def get(self, request):
         id = request.GET.get("id", None)
         dog = AbandonedDog.objects.get(id=id)
-        dog.isSuccess = True
-        dog.save()
-        return HttpResponse(status=200)
+        isSuccess = dog.isSuccess
+        data = {'isSuccess': isSuccess}
+        return Response(data)
