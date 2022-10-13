@@ -40,6 +40,6 @@ class DogListFilteringAPI(APIView):
 
 class ReserveAPI(APIView):
     def post(self, request):
-        id = request.data.get("id")
+        id = request.body.get("id")
         data = {'id': id}
         return Response(data)
