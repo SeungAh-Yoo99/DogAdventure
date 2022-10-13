@@ -14,6 +14,7 @@ class AbandonedDog(models.Model) :
     datetime = models.DateTimeField()
     weight = models.FloatField()
     info = models.TextField()
+    airport = models.CharField(max_length=64, default='')
     region = models.CharField(max_length=64, default='')
     transport = models.CharField(max_length=64, default='')
     destination = models.CharField(max_length=64,  default='')
