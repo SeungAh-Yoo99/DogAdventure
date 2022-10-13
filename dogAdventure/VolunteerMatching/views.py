@@ -33,9 +33,9 @@ class DogListFilteringAPI(APIView):
         if AbandonedDog.objects.filter(Q(datetime=date) & Q(transport=transport) & Q(destination=destination)).exists():
             dog = AbandonedDog.objects.filter(Q(datetime=date) & Q(transport=transport) & Q(destination=destination))
             serializer = DogSerializer(dog, many=True)
+            return Response(serializer.data)
         else:
-            serializer.data = {}
-        return Response(serializer.data)
+            return Response([])
 
 class ReAPI(APIView):
     def get(self, request):
