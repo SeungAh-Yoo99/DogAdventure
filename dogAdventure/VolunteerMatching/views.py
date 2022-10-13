@@ -25,8 +25,8 @@ class DogDetailAPI(APIView):
 class DogListFilteringAPI(APIView):
     def get(self, request):
         date = request.GET.get("date", None)
-        # date = datetime.datetime.strp(date + " 00:00:00", '%Y-%m-%d %H:%M:%S' )
-        dog = AbandonedDog.objects.get(datetime__lt=date)
+        date = datetime.datetime.strp(date + " 00:00:00", '%Y-%m-%d %H:%M:%S')
+        dog = AbandonedDog.objects.get(datetime=date)
         serializer = DogSerializer(dog)
         return Response(serializer.data)
 
