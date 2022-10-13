@@ -3,6 +3,7 @@ from rest_framework import serializers
 from .models import AbandonedDog, Image
 
 class DogImagesSerializer(serializers.ModelSerializer):
+    image = serializers.ImageField(max_length=None, use_url=True, allow_null=True, required=False)
 
     class Meta:
         model = Image
