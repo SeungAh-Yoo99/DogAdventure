@@ -14,9 +14,9 @@ class DogSerializer(serializers.ModelSerializer):
     # images = serializers.SerializerMethodField()
     images = DogImagesSerializer(many=True, read_only=True)
 
-    # def get_images(self, obj):
-    #     image=obj.image_set.all()
-    #     return DogImagesSerializer(instance=image, many=True, context=self.context).data
+    def get_images(self, obj):
+        image=obj.image.all()
+        return DogImagesSerializer(instance=image, many=True, context=self.context).data
     class Meta:
         model = AbandonedDog
         fields = ['id', 'name', 'gender', 'datetime', 'title', 'weight', 'info', 'region', 'transport', 'destination', 'images']
