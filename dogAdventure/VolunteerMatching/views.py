@@ -5,6 +5,7 @@ from rest_framework.response import Response
 import datetime
 from django.db.models import Q
 import json
+from django.http import HttpResponse
 
 from .models import AbandonedDog
 from .serializers import DogSerializer, DogListSerializer
@@ -56,3 +57,4 @@ class isSuccessAPI(APIView):
 
         if serializer.is_valid():
             serializer.save()
+            return HttpResponse(status=204)
