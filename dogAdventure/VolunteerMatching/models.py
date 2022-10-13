@@ -18,6 +18,7 @@ class AbandonedDog(models.Model) :
     transport = models.CharField(max_length=64)
     destination = models.CharField(max_length=64)
     title = models.TextField(blank=True, null=True)
+    isSuccess = models.BooleanField(default=False)
 
     def __str__(self):
         return (self.name + '_' + str(self.id))
