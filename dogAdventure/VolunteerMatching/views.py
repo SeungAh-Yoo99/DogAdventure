@@ -46,7 +46,6 @@ class ReserveAPI(APIView):
         body = json.loads(request.body.decode('utf-8'))
         id = body['id']
         sleep(10)
-        id = request.GET.get("id", None)
         dog = AbandonedDog.objects.get(id=id)
         dog.isSuccess = True
         dog.save()
