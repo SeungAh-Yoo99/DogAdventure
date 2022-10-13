@@ -15,7 +15,7 @@ class DogSerializer(serializers.ModelSerializer):
     #images = DogImagesSerializer(many=True, read_only=True)
 
     def get_images(self, obj):
-        image=obj.image.all()
+        image=obj.images.all()
         return DogImagesSerializer(instance=image, many=True, context=self.context).data
     def create(self, validated_data):
         instance = AbandonedDog.objects.create(**validated_data)
