@@ -26,4 +26,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # my api
     path('', views.TestAPI.as_view()),
+    path('detail/', views.DogDetailAPI.as_view()),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
