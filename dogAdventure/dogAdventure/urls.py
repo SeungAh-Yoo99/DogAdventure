@@ -29,5 +29,5 @@ urlpatterns = [
     path('detail/', views.DogDetailAPI.as_view()),
     path('list/', views.DogListFilteringAPI.as_view()),
     path('reserve', views.ReserveAPI.as_view()),
-    path('isSuccessAPI/', views.isSuccessAPI.as_view())
+    path('isSuccess/', views.isSuccessAPI.as_view())
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
