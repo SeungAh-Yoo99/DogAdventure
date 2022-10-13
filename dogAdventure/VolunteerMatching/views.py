@@ -45,7 +45,6 @@ class ReserveAPI(APIView):
     def post(self, request):
         body = json.loads(request.body.decode('utf-8'))
         id = body['id']
-        sleep(10)
         dog = AbandonedDog.objects.get(id=id)
         dog.isSuccess = True
         dog.save()
