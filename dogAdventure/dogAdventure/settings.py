@@ -157,7 +157,7 @@ CORS_ALLOW_HEADERS = (
     'x-requested-with',
 )
 
-ALLOWED_HOSTS = ['172.20.10.7', 'localhost', 'x.x.x.x']
+ALLOWED_HOSTS = ['https://dogadventure-qeocv.run.goorm.io', '172.20.10.7', 'localhost', 'x.x.x.x']
 
 # 미디어 파일을 관리할 루트 media 디렉터리
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
