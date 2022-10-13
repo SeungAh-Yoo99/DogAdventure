@@ -17,7 +17,7 @@ class AbandonedDog(models.Model) :
     region = models.CharField(max_length=64)
     transport = models.CharField(max_length=64)
     destination = models.CharField(max_length=64)
-    title = models.TextField(blank=True, null=True)
+    title = models.TextField(blank=True, null=True, default='')
 
     def __str__(self):
         return (self.name + '_' + str(self.id))
