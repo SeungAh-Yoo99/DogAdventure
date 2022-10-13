@@ -19,3 +19,16 @@ class DogDetailAPI(APIView):
         dog = AbandonedDog.objects.get(id=id)
         serializer = DogSerializer(dog)
         return Response(serializer.data)
+
+
+class DogListFilteringAPI(APIView):
+    def get(self, request):
+        date = request.GET.get("date", None)
+        dog = AbandonedDog.objects.get(date__lt=id)
+        serializer = DogSerializer(dog)
+        return Response(serializer.data)
+
+class ReAPI(APIView):
+    def get(self, request):
+        data = {'message': 'SUCCESS'}
+        return Response(data)
