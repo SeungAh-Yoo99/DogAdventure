@@ -7,7 +7,7 @@ class DogImagesSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Image
-        fields = '__all__'
+        fields = ['image', ]
 
 class DogSerializer(serializers.ModelSerializer):
     images = DogImagesSerializer(many=True, read_only=True)
