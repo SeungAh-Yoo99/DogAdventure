@@ -41,5 +41,5 @@ class DogListFilteringAPI(APIView):
 class ReserveAPI(APIView):
     def post(self, request):
         id = request.body.id
-        data = {'message': 'SUCCESS'}
+        data = {'id': id}
         return Response(data)
