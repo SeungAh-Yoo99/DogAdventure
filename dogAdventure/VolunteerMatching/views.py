@@ -4,6 +4,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 import datetime
 from django.db.models import Q
+import json
 
 from .models import AbandonedDog
 from .serializers import DogSerializer, DogListSerializer
@@ -41,6 +42,17 @@ class DogListFilteringAPI(APIView):
 class ReserveAPI(APIView):
     def post(self, request):
         json = json.loads(request.body)
-        id = json["id"]
+        id = json.get("id")
         data = {'id': id}
         return Response(data)
+
+
+class isSuccessAPI(APIView):
+    def get(self, request):
+        id = request.GET.get("id", None)
+        dog = AbandonedDog.objects.get(id=id)
+        serializer = DogSerializer(dog)
+        serializer.date["isSuccess"] = True
+
+        if serializer.is_valid():
+            serializer.save()
