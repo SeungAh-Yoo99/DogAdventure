@@ -52,9 +52,10 @@ class isSuccessAPI(APIView):
     def get(self, request):
         id = request.GET.get("id", None)
         dog = AbandonedDog.objects.get(id=id)
+        dog.isSuccess = True
         serializer = DogSerializer(dog)
-        serializer.date["isSuccess"] = True
 
         if serializer.is_valid():
             serializer.save()
-            return HttpResponse(status=204)
+            return HttpResponse(status=200)
+        return HttpResponse(status=400)
