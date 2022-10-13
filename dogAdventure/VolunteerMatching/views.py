@@ -6,7 +6,7 @@ import datetime
 from django.db.models import Q
 
 from .models import AbandonedDog
-from .serializers import DogSerializer
+from .serializers import DogSerializer, DogListSerializer
 
 # Create your views here.
 class TestAPI(APIView):
@@ -32,7 +32,7 @@ class DogListFilteringAPI(APIView):
         date = datetime.datetime.strptime(date + " 00:00:00", '%Y-%m-%d %H:%M:%S')
         if AbandonedDog.objects.filter(Q(datetime=date) & Q(transport=transport) & Q(destination=destination)).exists():
             dog = AbandonedDog.objects.filter(Q(datetime=date) & Q(transport=transport) & Q(destination=destination))
-            serializer = DogSerializer(dog, many=True)
+            serializer = DogListSerializer(dog, many=True)
             return Response(serializer.data)
         else:
             return Response([])
