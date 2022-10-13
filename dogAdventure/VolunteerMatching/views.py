@@ -30,8 +30,11 @@ class DogListFilteringAPI(APIView):
         destination = request.GET.get("destination", None)
 
         date = datetime.datetime.strptime(date + " 00:00:00", '%Y-%m-%d %H:%M:%S')
-        dog = AbandonedDog.objects.filter(Q(datetime=date) & Q(transport=transport) & Q(destination=destination))
-        serializer = DogSerializer(dog, many=True)
+        if AbandonedDog.objects.filter(Q(datetime=date) & Q(transport=transport) & Q(destination=destination)).exists():
+            dog = AbandonedDog.objects.filter(Q(datetime=date) & Q(transport=transport) & Q(destination=destination))
+            serializer = DogSerializer(dog, many=True)
+        else:
+            serializer.data = {}
         return Response(serializer.data)
 
 class ReAPI(APIView):
