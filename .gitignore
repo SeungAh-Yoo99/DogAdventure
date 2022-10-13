@@ -1,4 +1,5 @@
 dogAdventure/dogAdventure/settings.py
+dogAdventure/dogAdventure/db_settings.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
