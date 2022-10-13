@@ -15,7 +15,7 @@ class DogSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = AbandonedDog
-        fields = ['id', 'name', 'gender', 'datetime', 'title', 'weight', 'info', 'region', 'transport', 'destination', 'images']
+        fields = ['id', 'name', 'gender', 'datetime', 'title', 'weight', 'info', 'region', 'transport', 'destination', 'images', 'isSuccess']
 
 
 class DogListSerializer(serializers.ModelSerializer):
@@ -23,4 +23,4 @@ class DogListSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = AbandonedDog
-        fields = ['id', 'name', 'gender', 'title', 'weight', 'images']
+        fields = ['id', 'name', 'gender', 'title', 'weight', 'images', 'isSuccess']
