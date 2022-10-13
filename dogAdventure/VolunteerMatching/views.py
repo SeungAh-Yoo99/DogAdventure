@@ -2,6 +2,7 @@ from django.shortcuts import render
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
+import datetime
 
 from .models import AbandonedDog
 from .serializers import DogSerializer
@@ -24,7 +25,8 @@ class DogDetailAPI(APIView):
 class DogListFilteringAPI(APIView):
     def get(self, request):
         date = request.GET.get("date", None)
-        dog = AbandonedDog.objects.get(datetime__lt=id)
+        # date = datetime.datetime.strp(date + " 00:00:00", '%Y-%m-%d %H:%M:%S' )
+        dog = AbandonedDog.objects.get(datetime__lt=date)
         serializer = DogSerializer(dog)
         return Response(serializer.data)
 
