@@ -36,3 +36,10 @@ class DogListFilteringAPI(APIView):
             return Response(serializer.data)
         else:
             return Response([])
+
+
+class ReserveAPI(APIView):
+    def post(self, request):
+        id = request.body.id
+        data = {'message': 'SUCCESS'}
+        return Response(data)
