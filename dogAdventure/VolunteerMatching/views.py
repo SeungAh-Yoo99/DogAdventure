@@ -41,8 +41,8 @@ class DogListFilteringAPI(APIView):
 
 class ReserveAPI(APIView):
     def post(self, request):
-        json = json.loads(request.body)
-        id = json.get("id")
+        body = json.loads(request.body.decode('utf-8'))
+        id = body['id']
         data = {'id': id}
         return Response(data)
 
