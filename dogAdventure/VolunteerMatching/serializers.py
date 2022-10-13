@@ -18,7 +18,7 @@ class DogSerializer(serializers.ModelSerializer):
 
 
 class DogListSerializer(serializers.ModelSerializer):
-    image = DogImagesSerializer(many=True, read_only=True).data[0]
+    image = DogImagesSerializer(many=True, read_only=True)
     
     class Meta:
         model = AbandonedDog
