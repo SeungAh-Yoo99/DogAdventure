@@ -10,7 +10,7 @@ class DogImagesSerializer(serializers.ModelSerializer):
         fields = ['id', 'dog', 'image']
 
 class DogSerializer(serializers.ModelSerializer):
-    images = DogImagesSerializer(read_only=True)
+    images = DogImagesSerializer(many=True, read_only=True)
     class Meta:
         model = AbandonedDog
         fields = ['id', 'name', 'gender', 'datetime', 'weight', 'info', 'region', 'images']
