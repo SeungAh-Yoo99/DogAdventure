@@ -22,7 +22,7 @@ class AbandonedDog(models.Model) :
 
 class Image(models.Model):
     id = models.AutoField(primary_key=True)
-    dog = models.ForeignKey(AbandonedDog, on_delete=models.CASCADE, null=False)
+    dog = models.ForeignKey(AbandonedDog, on_delete=models.CASCADE, null=False, related_name='images')
     image = models.ImageField(upload_to='images/', blank=True, null=True)
 
     def __str__(self):
